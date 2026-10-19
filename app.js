@@ -9,23 +9,10 @@ async function carregarVersoes() {
             throw new Error("Falha ao consultar o GitHub.");
         }
 
-        const releases = await resposta.json();
-
-        if (!releases.length) {
-            console.warn("Nenhuma versão encontrada.");
-            return;
-        }
-
-        const releaseAtual = releases[0];
-
-        const versaoAtual =
-            releaseAtual.tag_name?.replace(/^v/i, "") || "—";
+        const releasesRecebidas = await resposta.json();
 
         function numeroVersao(valor) {
-            return valor
-                .replace(/^v/i, "")
-                .split(".")
-                .map(n => parseInt(n, 10) || 0);
+            return valor.replace(/^v/i, "").split(".").map(n => parseInt(n, 10) || 0);
         }
 
         function compararVersoes(a, b) {
@@ -40,10 +27,21 @@ async function carregarVersoes() {
             return 0;
         }
 
-        const releasesVisiveis = releases.filter(release => {
-            const versao = release.tag_name?.replace(/^v/i, "");
-            return versao && compararVersoes(versao, versaoAtual) >= 0;
-        });
+        const releases = releasesRecebidas
+            .filter(release => /^v?\d+\.\d+\.\d+$/i.test(release.tag_name || ""))
+            .sort((a, b) => compararVersoes(
+                b.tag_name.replace(/^v/i, ""),
+                a.tag_name.replace(/^v/i, "")
+            ));
+
+        if (!releases.length) {
+            console.warn("Nenhuma versão semântica encontrada.");
+            return;
+        }
+
+        const releaseAtual = releases[0];
+        const versaoAtual = releaseAtual.tag_name.replace(/^v/i, "");
+        const releasesVisiveis = releases;
 
         // Atualiza a versão principal
         const elementoVersao = document.querySelector(".current-version strong");
