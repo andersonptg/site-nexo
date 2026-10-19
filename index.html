@@ -19,6 +19,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#05060a">
     <title>NEXO — Sua inteligência. Sem limites.</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/nexo-192.png">
+    <link rel="apple-touch-icon" href="icons/nexo-192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="NEXO">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -153,12 +159,17 @@
                 </a>
 
                 <div class="current-version">
-                    VERSÃO ATUAL <strong>1.9.3</strong>
+                    VERSÃO ATUAL <strong>1.9.4</strong>
                 </div>
 
             </div>
 
         </section>
+
+        <div class="ios-install-hint">
+            <h3>Também no iPhone</h3>
+            <p>Abra este site no Safari, toque em Compartilhar e escolha “Adicionar à Tela de Início”.</p>
+        </div>
 
         <section class="versions">
 
@@ -175,7 +186,7 @@
 
                 <div class="version-item active">
                     <div>
-                        <strong>NEXO 1.9.3</strong>
+                        <strong>NEXO 1.9.4</strong>
                         <span>Versão atual</span>
                     </div>
 
@@ -219,7 +230,17 @@
         </a>
     </footer>
 
+
+<script src="app.js?v=1.9.4"></script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js")
+      .catch(error => console.error("NEXO Service Worker:", error));
+  });
+}
+</script>
+
 </body>
 </html>
-
-<script src="app.js?v=1.9.3"></script>
