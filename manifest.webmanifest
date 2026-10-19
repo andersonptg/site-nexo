@@ -1,17 +1,23 @@
 {
-  "id": "/DaNikeAI-Site/",
+  "id": "/site-nexo/",
   "name": "NEXO — Sua inteligência. Sem limites.",
   "short_name": "NEXO",
-  "description": "NEXO, sua inteligência artificial.",
+  "description": "Site oficial do NEXO. A versão nativa para iPhone está em desenvolvimento.",
   "lang": "pt-BR",
-  "start_url": "/DaNikeAI-Site/",
-  "scope": "/DaNikeAI-Site/",
+  "start_url": "/site-nexo/",
+  "scope": "/site-nexo/",
   "display": "standalone",
-  "display_override": ["standalone", "minimal-ui"],
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
   "orientation": "portrait",
   "background_color": "#05070d",
   "theme_color": "#05070d",
-  "categories": ["productivity", "utilities"],
+  "categories": [
+    "productivity",
+    "utilities"
+  ],
   "icons": [
     {
       "src": "icons/nexo-192.png",

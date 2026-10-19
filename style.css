@@ -2131,27 +2131,38 @@ section {
 }
 
 
-/* INSTALACAO DO NEXO NO IPHONE */
-.ios-install-hint {
-    margin: 22px auto;
-    padding: 18px;
-    max-width: 520px;
+
+
+
+/* CARTAO APPLE — VERSAO NATIVA EM DESENVOLVIMENTO */
+.ios-download-card {
+    margin: 22px auto 0;
+    border-color: rgba(0, 213, 255, 0.42);
+    background: linear-gradient(145deg, rgba(8, 16, 30, 0.92), rgba(10, 12, 20, 0.82));
+}
+
+.ios-app-icon {
+    background: linear-gradient(135deg, #172033, #30394b);
+    box-shadow: 0 0 24px rgba(148, 163, 184, 0.13);
+}
+
+.ios-status {
+    margin-top: 18px;
+    padding: 11px 12px;
+    border: 1px solid rgba(0, 213, 255, 0.38);
+    border-radius: 11px;
+    color: #70e8ff;
+    background: rgba(0, 160, 210, 0.08);
     text-align: center;
-    background: rgba(5, 12, 28, 0.88);
-    border: 1px solid rgba(0, 213, 255, 0.45);
-    border-radius: 16px;
-    box-shadow: 0 0 18px rgba(0, 100, 255, 0.12);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
 }
 
-.ios-install-hint h3 {
-    margin: 0 0 9px;
-    color: #00d5ff;
-    font-size: 1.05rem;
-}
-
-.ios-install-hint p {
-    margin: 0;
-    color: #d7e2f5;
-    font-size: 0.92rem;
-    line-height: 1.6;
+.ios-description {
+    margin: 12px 2px 0;
+    color: #aab6ca;
+    font-size: 12px;
+    line-height: 1.65;
+    text-align: center;
 }
