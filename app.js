@@ -72,7 +72,7 @@ async function carregarVersoes() {
                 const info = document.createElement("div");
 
                 const nome = document.createElement("strong");
-                nome.textContent = `DaNikeAI ${versao}`;
+                nome.textContent = `NEXO ${versao}`;
 
                 const status = document.createElement("span");
                 status.textContent =
@@ -106,7 +106,7 @@ async function carregarVersoes() {
         }
 
         console.log(
-            `DaNikeAI: ${versaoAtual} carregada automaticamente.`
+            `NEXO: ${versaoAtual} carregada automaticamente.`
         );
 
     } catch (erro) {
@@ -118,7 +118,7 @@ carregarVersoes();
 
 
 /* =========================================================
-   DaNikeAI — Scanner + sons eletrônicos
+   NEXO — Scanner + sons eletrônicos
    ========================================================= */
 
 (() => {
