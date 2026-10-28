@@ -230,3 +230,38 @@ carregarVersoes();
 
     orb.setAttribute("tabindex", "0");
 })();
+
+
+/* NEXO Space — distribuição automática do APK */
+(async () => {
+  const API = "https://api.github.com/repos/andersonptg/DaNikeAI/releases/latest";
+  const FALLBACK = "https://github.com/andersonptg/DaNikeAI/releases/latest/download/NEXO.apk";
+
+  try {
+    const r = await fetch(API, { headers: { Accept: "application/vnd.github+json" } });
+    if (!r.ok) throw new Error("GitHub API " + r.status);
+
+    const release = await r.json();
+    const apk = (release.assets || []).find(a =>
+      String(a.name).toLowerCase().endsWith(".apk")
+    );
+
+    const url = apk?.browser_download_url || FALLBACK;
+    const tag = release.tag_name || "Última versão";
+
+    document.querySelectorAll('a[href*=".apk"], #download, .download-btn, [data-download]').forEach(el => {
+      el.href = url;
+      el.setAttribute("download", "");
+    });
+
+    document.querySelectorAll("[data-version], .version, #version").forEach(el => {
+      el.textContent = tag;
+    });
+
+    document.querySelectorAll("[data-download-text]").forEach(el => {
+      el.textContent = "Baixar NEXO Space " + tag;
+    });
+  } catch (e) {
+    console.warn("Não foi possível consultar o último Release:", e);
+  }
+})();
