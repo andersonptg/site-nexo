@@ -243,7 +243,7 @@ carregarVersoes();
 
     const release = await r.json();
     const apk = (release.assets || []).find(a =>
-      String(a.name).toLowerCase().endsWith(".apk")
+      String(a.name).toLowerCase() === "nexo.apk"
     );
 
     const url = apk?.browser_download_url || FALLBACK;
@@ -254,8 +254,10 @@ carregarVersoes();
       el.setAttribute("download", "");
     });
 
-    document.querySelectorAll("[data-version], .version, #version").forEach(el => {
-      el.textContent = tag;
+    document.querySelectorAll(
+      "[data-version], .version, #version, .current-version strong"
+    ).forEach(el => {
+      el.textContent = tag.replace(/^v/i, "");
     });
 
     document.querySelectorAll("[data-download-text]").forEach(el => {
