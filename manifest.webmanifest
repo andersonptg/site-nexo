@@ -2,7 +2,7 @@
   "id": "/site-nexo/",
   "name": "NEXO — Sua inteligência. Sem limites.",
   "short_name": "NEXO",
-  "description": "Site oficial do NEXO. A versão nativa para iPhone está em desenvolvimento.",
+  "description": "Site oficial do NEXO: versões Android e acesso web instalável no iPhone. A versão web completa está em desenvolvimento.",
   "lang": "pt-BR",
   "start_url": "/site-nexo/",
   "scope": "/site-nexo/",

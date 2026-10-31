@@ -25,7 +25,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="NEXO">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
 </head>
 
 <body>
@@ -144,7 +144,7 @@
             <div class="download-card">
 
                 <div class="app-info">
-                    <div class="app-icon">N</div>
+                    <img class="app-icon official-app-icon" src="icons/nexo-192.png" width="48" height="48" alt="Logo oficial do NEXO">
 
                     <div>
                         <h2>NEXO</h2>
@@ -166,31 +166,34 @@
 
         </section>
 
-        <div class="download-card ios-download-card" aria-label="Instalar NEXO no iPhone">
+        <section class="download-card ios-download-card" id="ios" aria-labelledby="ios-card-title">
     <div class="app-info">
-        <div class="app-icon ios-app-icon" aria-hidden="true">🍎</div>
-        <div>
-            <h2>NEXO</h2>
-            <p>Para iPhone (iOS)</p>
-        </div>
+        <img class="app-icon ios-app-icon" src="icons/nexo-192.png" width="48" height="48" alt="Logo oficial do NEXO">
+        <div><h2 id="ios-card-title">NEXO</h2><p>Para iPhone (iOS)</p></div>
     </div>
+    <button class="download-button ios-install-button" id="iosInstallButton" type="button">
+        <span aria-hidden="true">＋</span> INSTALAR
+    </button>
+    <div class="current-version ios-card-caption">VERSÃO WEB · ADICIONAR À TELA DE INÍCIO</div>
+</section>
 
-    <div class="ios-status">ADICIONE À TELA INICIAL</div>
-    <p class="ios-description">
-        Acesse o NEXO pelo Safari e coloque o ícone na tela inicial para abrir
-        a versão web como um aplicativo.
-    </p>
-
-    <div class="ios-install-steps">
-        <p><strong>01.</strong> Abra esta página no Safari do iPhone.</p>
-        <p><strong>02.</strong> Toque em Compartilhar <span aria-hidden="true">↗</span>.</p>
-        <p><strong>03.</strong> Selecione “Adicionar à Tela de Início” e confirme em “Adicionar”.</p>
+<dialog id="iosInstallDialog" class="ios-install-dialog" aria-labelledby="ios-dialog-title">
+    <div class="ios-dialog-content">
+        <button type="button" class="ios-dialog-close" id="iosDialogClose" aria-label="Fechar instruções">×</button>
+        <img src="icons/nexo-192.png" width="68" height="68" class="ios-dialog-logo" alt="NEXO">
+        <h2 id="ios-dialog-title">NEXO no iPhone</h2>
+        <p class="ios-dialog-subtitle">Instale o site oficial do NEXO na Tela de Início para abrir como aplicativo web.</p>
+        <p id="iosSafariTip" class="ios-safari-tip" hidden>Você está num navegador de outro aplicativo. Abra o endereço no Safari do iPhone.</p>
+        <ol class="ios-dialog-steps">
+            <li>Abra esta página pelo <strong>Safari</strong>.</li>
+            <li>Toque em <strong>Compartilhar</strong>.</li>
+            <li>Escolha <strong>Adicionar à Tela de Início</strong>.</li>
+            <li>Ative <strong>Abrir como App da Web</strong> e toque em <strong>Adicionar</strong>.</li>
+        </ol>
+        <p class="ios-dialog-note">A instalação exige sua confirmação no iPhone. A versão web completa do aplicativo está em desenvolvimento.</p>
+        <button type="button" class="download-button ios-dialog-ok" id="iosDialogOk">ENTENDI</button>
     </div>
-
-    <p class="ios-note">
-        Esta é a versão web instalável do NEXO, não a versão nativa da App Store.
-    </p>
-</div>
+</dialog>
 
         <section class="versions">
 
@@ -252,7 +255,7 @@
     </footer>
 
 
-<script src="app.js?v=1.9.4"></script>
+<script src="app.js?v=2"></script>
 
 <script>
 if ("serviceWorker" in navigator) {

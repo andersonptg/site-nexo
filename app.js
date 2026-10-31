@@ -267,3 +267,27 @@ carregarVersoes();
     console.warn("Não foi possível consultar o último Release:", e);
   }
 })();
+
+
+/* NEXO iOS: Safari exige confirmação do usuário para adicionar à Tela de Início. */
+(() => {
+  const abrir=document.getElementById('iosInstallButton');
+  const modal=document.getElementById('iosInstallDialog');
+  const fechar=document.getElementById('iosDialogClose');
+  const entendi=document.getElementById('iosDialogOk');
+  const aviso=document.getElementById('iosSafariTip');
+  if(!abrir||!modal)return;
+  const mostrar=()=>{
+    if(aviso)aviso.hidden=!/Instagram|FBAN|FBAV|FB_IAB/i.test(navigator.userAgent);
+    if(typeof modal.showModal==='function')modal.showModal();
+    else modal.setAttribute('open','');
+  };
+  const esconder=()=>{
+    if(typeof modal.close==='function')modal.close();
+    else modal.removeAttribute('open');
+  };
+  abrir.addEventListener('click',mostrar);
+  fechar?.addEventListener('click',esconder);
+  entendi?.addEventListener('click',esconder);
+  modal.addEventListener('click', e=>{if(e.target===modal)esconder();});
+})();
