@@ -4,22 +4,30 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#061329">
-  <meta name="description" content="NEXO Web Premium — acesse suas conversas e conexões no navegador.">
+  <meta name="description" content="NEXO Web Premium — HOME, filmes, social, grupos, status e mensagens em qualquer tela.">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="NEXO">
-  <link rel="icon" href="../icons/nexo-192.png" type="image/png">
-  <link rel="apple-touch-icon" href="../icons/nexo-192.png">
+  <link rel="icon" href="./assets/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="./assets/icon-180.png">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="stylesheet" href="./style.css?v=1">
   <title>NEXO Web Premium</title>
+  <link rel="stylesheet" href="./features.css?v=2">
 </head>
 <body>
+  <!-- NEXO_WEB_V2_MARKER -->
+  <div id="nexoSplash" role="status" aria-label="Iniciando NEXO">
+    <div class="splash-art"><img src="./assets/nexo_halloween.webp" alt="NEXO — Splash oficial"></div>
+    <p class="splash-label">INICIANDO NEXO</p><div class="splash-line" aria-hidden="true"></div>
+    <button id="skipSplash" type="button">PULAR INTRODUÇÃO</button>
+  </div>
+
   <div class="background-orb" aria-hidden="true"></div>
   <div class="page" id="page">
     <header class="topbar">
       <a class="brand" href="../" aria-label="Site oficial NEXO">
-        <img src="../icons/nexo-192.png" alt="" width="42" height="42">
+        <img src="./assets/nexo_icon.webp" alt="" width="42" height="42">
         <span><strong>NEXO</strong><small>WEB PREMIUM</small></span>
       </a>
       <div class="top-actions">
@@ -30,7 +38,7 @@
 
     <section class="login-view" id="loginView">
       <div class="login-card">
-        <div class="login-logo"><img src="../icons/nexo-192.png" alt="Logo NEXO" width="74" height="74"></div>
+        <div class="login-logo"><img src="./assets/nexo_icon.webp" alt="Logo NEXO" width="74" height="74"></div>
         <p class="eyebrow">NEXO · SUA CONTA, EM QUALQUER TELA</p>
         <h1>Conecte-se ao <span>NEXO</span></h1>
         <p class="muted">Entre com o mesmo e-mail e senha cadastrados no aplicativo Android.</p>
@@ -42,11 +50,67 @@
           <button class="primary-button" id="loginButton" type="submit">ENTRAR NO NEXO <span aria-hidden="true">➜</span></button>
         </form>
         <p id="loginMessage" class="status" role="status"></p>
-        <p class="helper">Primeira etapa: login, conexões, histórico e mensagens de texto. Áudio, mídias, Web Push e demais recursos virão depois.</p>
+        <p class="helper">NEXO Web V2: splash, início, filmes, social, grupos e status. Áudios, Web Push e alguns recursos nativos ainda serão adaptados.</p>
       </div>
     </section>
 
     <section id="appView" class="app-view" hidden>
+<div class="nexo-expansion" id="nexoExpansion">
+  <section class="exp-panel nexo-home" id="screenHome" aria-label="Início NEXO">
+    <div class="home-welcome"><div><p class="exp-eyebrow">NEXO · SEU UNIVERSO</p><h1>Bem-vindo ao <em>NEXO.</em></h1><p>Conecte-se, converse e descubra tudo em um só lugar.</p></div><img src="./assets/nexo_icon.webp" alt="NEXO" width="90" height="90"></div>
+    <div class="home-feature"><span class="home-feature-tag">APP PREMIUM</span><img src="./assets/nexo_halloween.webp" alt="NEXO" width="124" height="124"><h2>Sua inteligência.<br><span>Sem limites.</span></h2><p>O seu NEXO agora também na web.</p></div>
+    <div class="exp-section-title"><h2>Explorar</h2><span>Escolha um recurso</span></div>
+    <div class="home-banners">
+      <button type="button" data-screen="ia" aria-label="Abrir Inteligência Artificial"><img src="./assets/ia_home.webp" alt="IA — Sua assistente" loading="lazy"></button>
+      <button type="button" data-screen="history" aria-label="Abrir Histórico"><img src="./assets/historico_home.webp" alt="Histórico — Veja suas atividades" loading="lazy"></button>
+      <button type="button" data-screen="have" aria-label="Abrir Filmes e Séries"><img src="./assets/filmes_series_home.webp" alt="Filmes e Séries — Acessar HAVE" loading="lazy"></button>
+      <button type="button" data-screen="share" aria-label="Compartilhar NEXO"><img src="./assets/compartilhar_app_home.webp" alt="Compartilhar NEXO" loading="lazy"></button>
+    </div>
+    <div class="exp-section-title"><h2>Comunidade NEXO</h2><span>Conexões reais</span></div>
+    <div class="shortcut-grid">
+      <button data-screen="social" type="button"><span>◎</span><strong>GLOBAL</strong><small>Pessoas</small></button>
+      <button data-screen="friends" type="button"><span>♧</span><strong>AMIGOS</strong><small>Conexões</small></button>
+      <button data-screen="messages" type="button"><span>▤</span><strong>MENSAGENS</strong><small>Conversas</small></button>
+      <button data-screen="groups" type="button"><span>♟</span><strong>GRUPOS</strong><small>Salas sociais</small></button>
+      <button data-screen="status" type="button"><span>◷</span><strong>STATUS</strong><small>Atualizações</small></button>
+      <button data-screen="requests" type="button"><span>✉</span><strong>CONVITES</strong><small>Solicitações</small></button>
+    </div>
+  </section>
+
+  <section class="exp-panel" id="screenSocial" hidden aria-label="Comunidade">
+    <div class="exp-page-head"><div><p class="exp-eyebrow">NEXO SOCIAL</p><h1>Conectados.</h1><p>Conheça pessoas, faça amigos e compartilhe.</p></div></div>
+    <div class="social-nav">
+      <button class="social-pill active" type="button" data-social="global">GLOBAL</button>
+      <button class="social-pill" type="button" data-social="friends">AMIGOS</button>
+      <button class="social-pill" type="button" data-social="requests">SOLICITAÇÕES</button>
+      <button class="social-pill" type="button" data-social="groups">GRUPOS</button>
+      <button class="social-pill" type="button" data-social="status">STATUS</button>
+    </div>
+    <div class="social-content" id="socialContent"><p class="exp-loading">Carregando comunidade…</p></div>
+  </section>
+
+  <section class="exp-panel nexo-have" id="screenHave" hidden aria-label="Filmes e Séries">
+    <div class="have-head"><div class="have-logo">▶ <strong>HAVE</strong></div><p>Filmes, séries e muita resenha.</p><h1>Seu cinema.<br><span>Seu universo.</span></h1><p>Explore o catálogo Nuvem NEXO e suas plataformas favoritas.</p></div>
+    <div class="have-nav"><button type="button" class="selected" data-have-filter="filmes">FILMES</button><button type="button" data-have-filter="series">SÉRIES</button><button type="button" data-have-filter="salas">SALAS HAVE</button></div>
+    <div id="haveContent"><div class="have-feature-card"><div class="have-feature-overlay"><span class="exp-eyebrow">NUVEM NEXO</span><h2>Filmes e séries<br>na sua tela.</h2><p>Catálogo online já disponível no serviço NEXO.</p><button class="exp-primary" type="button" id="openNexoCatalog">▶ VER CATÁLOGO</button></div></div><div class="have-platforms"><h3>Plataformas</h3><div class="platform-grid"><a href="https://www.netflix.com/br/" target="_blank" rel="noopener noreferrer">NETFLIX ↗</a><a href="https://www.primevideo.com/" target="_blank" rel="noopener noreferrer">PRIME VIDEO ↗</a><a href="https://www.disneyplus.com/" target="_blank" rel="noopener noreferrer">DISNEY+ ↗</a><a href="https://www.max.com/" target="_blank" rel="noopener noreferrer">MAX ↗</a><a href="https://globoplay.globo.com/" target="_blank" rel="noopener noreferrer">GLOBOPLAY ↗</a></div></div></div>
+    <div id="catalogWrap" class="catalog-wrap" hidden><div class="catalog-toolbar"><strong>Nuvem NEXO</strong><a href="https://nippy-nexo-stream-hub.base44.app/" target="_blank" rel="noopener noreferrer">Abrir em outra guia ↗</a><button type="button" id="closeNexoCatalog">FECHAR</button></div><iframe title="Catálogo Nuvem NEXO" id="nexoCatalogFrame" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><p class="exp-hint">Se a plataforma não permitir exibição nesta janela, use “Abrir em outra guia”.</p></div>
+  </section>
+
+  <section class="exp-panel" id="screenIA" hidden aria-label="Inteligência Artificial"><div class="exp-page-head"><div><p class="exp-eyebrow">NEXO AI</p><h1>Inteligência Artificial</h1><p>Seu assistente no universo NEXO.</p></div></div><div class="exp-info-card"><img src="./assets/ia_home.webp" alt="NEXO IA"><h2>Assistente NEXO</h2><p>A interface da IA já está preparada no aplicativo web. A conversa com o servidor ainda precisa de uma integração autenticada e protegida contra uso indevido. A IA do Android continua funcionando normalmente.</p><button class="exp-secondary" data-screen="home" type="button">VOLTAR AO INÍCIO</button></div></section>
+
+  <section class="exp-panel" id="screenHistory" hidden aria-label="Histórico"><div class="exp-page-head"><div><p class="exp-eyebrow">NEXO · ATIVIDADES</p><h1>Histórico</h1><p>Suas conversas disponíveis no Firebase.</p></div></div><div id="historyContent" class="exp-list"><p class="exp-loading">Preparando histórico…</p></div><p class="exp-hint">O histórico completo de atividades locais do Android ainda não é sincronizado na web.</p></section>
+
+  <section class="exp-panel" id="screenShare" hidden aria-label="Compartilhar NEXO"><div class="exp-page-head"><div><p class="exp-eyebrow">CONVIDE SEUS AMIGOS</p><h1>Compartilhar NEXO</h1></div></div><div class="exp-info-card"><img src="./assets/compartilhar_app_home.webp" alt="Compartilhar NEXO"><p>Envie o link oficial do NEXO para seus amigos.</p><button type="button" class="exp-primary" id="shareAppButton">COMPARTILHAR APP</button><button type="button" class="exp-secondary" id="copyAppButton">COPIAR LINK</button></div></section>
+</div>
+<nav class="nexo-dock" id="nexoDock" aria-label="Navegação principal">
+  <button type="button" data-screen="home" class="active"><span>⌂</span><small>INÍCIO</small></button>
+  <button type="button" data-screen="social"><span>♧</span><small>SOCIAL</small></button>
+  <button type="button" data-screen="messages"><span>◉</span><small>CHATS</small></button>
+  <button type="button" data-screen="have"><span>▶</span><small>HAVE</small></button>
+  <button type="button" data-screen="profile"><span>●</span><small>PERFIL</small></button>
+</nav>
+<div class="exp-toast" id="nexoToast" role="status" aria-live="polite" hidden></div>
+
       <div class="app-layout">
         <aside class="sidebar" id="sidebar">
           <div class="identity" id="identity">
@@ -65,7 +129,7 @@
         </aside>
         <main class="content" id="content" aria-live="polite">
           <section class="welcome" id="welcome">
-            <div class="welcome-graphic"><img src="../icons/nexo-192.png" width="100" height="100" alt=""></div>
+            <div class="welcome-graphic"><img src="./assets/nexo_icon.webp" width="100" height="100" alt=""></div>
             <p class="eyebrow">BEM-VINDO AO NEXO</p>
             <h2>Suas conexões.<br><span>Em qualquer tela.</span></h2>
             <p>Escolha uma conversa ou um amigo para começar.</p>
@@ -97,7 +161,8 @@
       </div>
     </section>
   </div>
-  <script type="module" src="./main.mjs?v=1"></script>
+  <script type="module" src="./main.mjs?v=2"></script>
+  <script type="module" src="./features.mjs?v=2"></script>
   <script>
     if ('serviceWorker' in navigator) {
       addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(console.warn));

@@ -1,16 +1,27 @@
 {
   "id": "/site-nexo/app/",
-  "name": "NEXO Web Premium",
+  "name": "NEXO — Web Premium",
   "short_name": "NEXO",
-  "description": "NEXO Web Premium: suas conexões e mensagens em qualquer tela.",
+  "description": "NEXO Premium no iPhone, Android, tablet e computador. Início, amigos, chats, grupos, status e HAVE.",
   "start_url": "/site-nexo/app/",
   "scope": "/site-nexo/app/",
   "display": "standalone",
-  "background_color": "#030813",
+  "background_color": "#000000",
   "theme_color": "#061329",
   "lang": "pt-BR",
   "icons": [
-    { "src": "../icons/nexo-192.png", "type": "image/png", "sizes": "192x192", "purpose": "any" },
-    { "src": "../icons/nexo-512.png", "type": "image/png", "sizes": "512x512", "purpose": "any" }
-  ]
+    {
+      "src": "./assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "orientation": "any"
 }
