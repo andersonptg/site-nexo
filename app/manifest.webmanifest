@@ -1,0 +1,16 @@
+{
+  "id": "/site-nexo/app/",
+  "name": "NEXO Web Premium",
+  "short_name": "NEXO",
+  "description": "NEXO Web Premium: suas conexões e mensagens em qualquer tela.",
+  "start_url": "/site-nexo/app/",
+  "scope": "/site-nexo/app/",
+  "display": "standalone",
+  "background_color": "#030813",
+  "theme_color": "#061329",
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "../icons/nexo-192.png", "type": "image/png", "sizes": "192x192", "purpose": "any" },
+    { "src": "../icons/nexo-512.png", "type": "image/png", "sizes": "512x512", "purpose": "any" }
+  ]
+}

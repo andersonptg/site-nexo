@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#061329">
+  <meta name="description" content="NEXO Web Premium — acesse suas conversas e conexões no navegador.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="NEXO">
+  <link rel="icon" href="../icons/nexo-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="../icons/nexo-192.png">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./style.css?v=1">
+  <title>NEXO Web Premium</title>
+</head>
+<body>
+  <div class="background-orb" aria-hidden="true"></div>
+  <div class="page" id="page">
+    <header class="topbar">
+      <a class="brand" href="../" aria-label="Site oficial NEXO">
+        <img src="../icons/nexo-192.png" alt="" width="42" height="42">
+        <span><strong>NEXO</strong><small>WEB PREMIUM</small></span>
+      </a>
+      <div class="top-actions">
+        <button class="icon-button" id="themeButton" type="button" title="Alternar tema" aria-label="Alternar tema">☾</button>
+        <button class="text-button" id="logoutButton" type="button" hidden>Sair</button>
+      </div>
+    </header>
+
+    <section class="login-view" id="loginView">
+      <div class="login-card">
+        <div class="login-logo"><img src="../icons/nexo-192.png" alt="Logo NEXO" width="74" height="74"></div>
+        <p class="eyebrow">NEXO · SUA CONTA, EM QUALQUER TELA</p>
+        <h1>Conecte-se ao <span>NEXO</span></h1>
+        <p class="muted">Entre com o mesmo e-mail e senha cadastrados no aplicativo Android.</p>
+        <form id="loginForm">
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" required autocomplete="username" placeholder="seuemail@exemplo.com">
+          <label for="password">Senha</label>
+          <input id="password" name="password" type="password" required autocomplete="current-password" placeholder="Sua senha">
+          <button class="primary-button" id="loginButton" type="submit">ENTRAR NO NEXO <span aria-hidden="true">➜</span></button>
+        </form>
+        <p id="loginMessage" class="status" role="status"></p>
+        <p class="helper">Primeira etapa: login, conexões, histórico e mensagens de texto. Áudio, mídias, Web Push e demais recursos virão depois.</p>
+      </div>
+    </section>
+
+    <section id="appView" class="app-view" hidden>
+      <div class="app-layout">
+        <aside class="sidebar" id="sidebar">
+          <div class="identity" id="identity">
+            <span class="avatar" id="myAvatar"><span>N</span></span>
+            <span class="identity-copy"><strong id="myName">Minha conta</strong><small id="myHandle">NEXO</small></span>
+            <span class="identity-online" title="Conectado" aria-label="Conectado">●</span>
+          </div>
+          <nav class="tab-navigation" aria-label="Seções do NEXO">
+            <button class="tab active" type="button" data-tab="messages">◉ <span>Mensagens</span></button>
+            <button class="tab" type="button" data-tab="friends">♧ <span>Amigos</span></button>
+            <button class="tab" type="button" data-tab="profile">☷ <span>Perfil</span></button>
+          </nav>
+          <div class="list-heading"><h2 id="listTitle">Conversas</h2><span id="listCount" class="count"></span></div>
+          <div class="item-list" id="itemList" aria-live="polite"><p class="empty">Carregando...</p></div>
+          <p class="sidebar-footnote">Sincronizado com seu Firebase NEXO · conexão segura</p>
+        </aside>
+        <main class="content" id="content" aria-live="polite">
+          <section class="welcome" id="welcome">
+            <div class="welcome-graphic"><img src="../icons/nexo-192.png" width="100" height="100" alt=""></div>
+            <p class="eyebrow">BEM-VINDO AO NEXO</p>
+            <h2>Suas conexões.<br><span>Em qualquer tela.</span></h2>
+            <p>Escolha uma conversa ou um amigo para começar.</p>
+          </section>
+          <section class="chat" id="chat" hidden>
+            <header class="chat-header">
+              <button class="back-button" id="backToList" type="button" aria-label="Voltar à lista">←</button>
+              <span class="avatar" id="chatAvatar"><span>?</span></span>
+              <span class="chat-contact"><strong id="chatName">Conversa</strong><small id="chatHandle">NEXO</small></span>
+            </header>
+            <div class="messages" id="messages" role="log" aria-label="Mensagens da conversa"></div>
+            <form class="composer" id="messageForm">
+              <label class="sr-only" for="messageInput">Digite uma mensagem</label>
+              <input id="messageInput" type="text" placeholder="Digite uma mensagem..." maxlength="4000" autocomplete="off" required>
+              <button id="sendButton" class="send-button" type="submit" aria-label="Enviar mensagem">➤</button>
+            </form>
+            <p class="chat-note">Mensagens sincronizadas em tempo real. Notificações push enviadas pela web ainda serão integradas.</p>
+          </section>
+          <section class="profile" id="profile" hidden>
+            <div class="profile-hero">
+              <span class="avatar profile-avatar" id="profileAvatar"><span>N</span></span>
+              <h2 id="profileName">Meu perfil</h2>
+              <p id="profileHandle">@nexo</p>
+              <p id="profileBio">NEXO Premium</p>
+            </div>
+            <div class="profile-group"><h3>Sua conta</h3><p id="profileEmail"></p><p>Este perfil usa as informações já salvas no Firebase do aplicativo Android.</p></div>
+          </section>
+        </main>
+      </div>
+    </section>
+  </div>
+  <script type="module" src="./main.mjs?v=1"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(console.warn));
+    }
+  </script>
+</body>
+</html>
